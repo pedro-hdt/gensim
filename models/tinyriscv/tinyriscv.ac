@@ -1,0 +1,33 @@
+AC_ARCH(tinyriscv)
+{
+	ac_mem Mem(4, 4, little, 1);
+    ac_mem Fetch(4, 4, little, 1);
+
+	// General Purpose Registers
+	ac_regspace(128) {
+		// bank NAME (TYPE, OFFSET, COUNT, REG-STRIDE, # ELEMS, ELEM-SIZE, ELEM-STRIDE)
+		bank GPR (uint32, 0, 32, 4, 1, 4, 4);
+		slot SP (uint32, 4, 8) SP;
+	}
+
+    // PC is separate from GPR in RISCV
+	ac_regspace(4) {
+		slot PC (uint32, 4, 0) PC;
+	}
+
+	ac_regspace(4) {
+		slot T (uint8, 1, 0) T;
+	}
+
+	ac_wordsize 32;
+
+    // Architecture Constructor
+	ARCH_CTOR(riscv) {
+		ac_isa("tinyriscv_isa.ac");
+		set_endian("little");
+		set_typename(word_t, uint32);
+		set_typename(sword_t, sint32);
+
+		set_constant(WordSize, uint8, 32);
+	};
+};

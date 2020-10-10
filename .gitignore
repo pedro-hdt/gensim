@@ -1,3 +1,5 @@
+.idea/
+
 *.orig
 
 archsim/inc/cmake-config.h
@@ -22,7 +24,7 @@ Makefile
 *.cmake
 CMakeCache.txt
 
-dist/
+build/
 gtest/
 
 models/*/output*

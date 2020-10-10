@@ -1,0 +1,28 @@
+decode(Type_I)
+{
+    // Nothing to do
+}
+
+decode(Type_J)
+{
+	sint32 imm = (imm4<<19) | (imm3 << 11) | (imm2 << 10) | imm1;
+	imm <<= 12;
+	imm >>= 12;
+
+	j_offset = imm * 2;
+}
+
+decode(Type_B)
+{
+    // Nothing to do
+}
+
+decode(Type_S)
+{
+    // Nothing to do
+}
+
+decode(Type_R)
+{
+    // Nothing to do
+}
