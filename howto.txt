@@ -1,0 +1,6 @@
+
+Compile the assembly code
+riscv64-linux-gnu-gcc -nostdlib -ffreestanding -march=rv64imfd hello-riscv.s --static -o hello.riscv
+
+Run the simulation (system calls will break) with tracing into a file
+../../build/dist/bin/archsim -m tinyriscv-user -l contiguous -s tinyriscv -e hello.riscv -t -U trace.log

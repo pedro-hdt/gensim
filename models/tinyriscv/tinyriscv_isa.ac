@@ -63,7 +63,7 @@ AC_ISA(tinyriscv)
 		jalr.set_asm("jalr %reg, %reg, %imm", rd, rs1, imm);
 		jalr.set_behaviour(jalr);
 		jalr.set_end_of_block();
-		jalr.set_variable_jump();
+		jalr.set_variable_jump(); // TODO always keep this for jump isns
 
 		bne.set_decoder(funct3=0x1, opcode=0x63);
 		bne.set_asm("bne %reg, %reg, %imm, %imm, %imm, %imm", rs1, rs2, imm4, imm3, imm2, imm1);

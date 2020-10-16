@@ -16,6 +16,18 @@ helper uint32 read_gpr(uint32 gpr_idx)
 	}
 }
 
+helper void tinyriscv_set_machmode(uint8 machmode) export
+{
+	// if we actually switch machmode, pend irqs
+	if(machmode != read_register(MACHMODE)) {
+		pend_interrupt();
+	}
+
+	write_register(MACHMODE, machmode);
+	__builtin_set_execution_ring(machmode);
+	return;
+}
+
 // 32-Base Instructions
 execute(addi)
 {
