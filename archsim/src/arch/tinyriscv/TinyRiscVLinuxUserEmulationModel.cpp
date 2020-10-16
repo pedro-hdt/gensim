@@ -34,7 +34,7 @@ public:
 
 RegisterComponent(archsim::abi::EmulationModel, TRVLinuxUserEmulationModel, "tinyriscv-user", "TinyRISCV Linux user emulation model");
 
-TinyRiscVLinuxUserEmulationModel::TinyRiscVLinuxUserEmulationModel() : LinuxUserEmulationModel("tinyriscv", false, AuxVectorEntries("tinyriscv", 0, 0)) { }
+TinyRiscVLinuxUserEmulationModel::TinyRiscVLinuxUserEmulationModel() : LinuxUserEmulationModel("tinyriscv", true, AuxVectorEntries("tinyriscv", 0, 0)) { }
 
 TinyRiscVLinuxUserEmulationModel::~TinyRiscVLinuxUserEmulationModel() { }
 
